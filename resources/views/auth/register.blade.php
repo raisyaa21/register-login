@@ -39,6 +39,16 @@
         <form method="POST" action="{{ route('register') }}">
             @csrf
 
+            @if ($errors->any())
+    <div class="bg-red-500 text-white p-3 rounded mb-4">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
             <div class="mb-4">
                 <label class="block mb-2">
                     Name
